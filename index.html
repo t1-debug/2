@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAC - Wireless AI Cyber Security Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700;900&display=swap');
+        
+dh        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            padding: 4rem;
+            position: relative;
+            background: radial-gradient(circle at top right, rgba(30, 64, 175, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.05), transparent);
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .accent-border {
+            border-left: 8px solid #10b981;
+            padding-left: 1.5rem;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2rem;
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            transition: width 0.3s ease;
+            z-index: 50;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .control-btn:hover {
+            background: rgba(16, 185, 129, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Slide 1: Title -->
+    <div class="slide active" id="slide-0">
+        <div class="text-center fade-in">
+            <h1 class="text-9xl font-black mb-4 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">WAC</h1>
+            <p class="text-3xl text-slate-400 font-light tracking-widest uppercase">Wireless AI Security</p>
+            <div class="mt-12 h-1 w-32 bg-emerald-500 mx-auto rounded-full"></div>
+            <p class="mt-8 text-xl text-slate-500">지능형 사이버 면역 체계의 진화</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Team (KJW first,  second) -->
+    <div class="slide" id="slide-1">
+        <h2 class="text-5xl font-bold mb-12 accent-border">The Architects of WAC</h2>
+        <div class="grid grid-cols-2 gap-12 content-area">
+            <!-- KJW First -->
+            <div class="glass-card fade-in">
+                <div class="text-blue-400 text-5xl mb-6"><i class="fa-solid fa-code"></i></div>
+                <h3 class="text-3xl font-bold mb-2">KJW</h3>
+                <p class="text-blue-500 font-semibold mb-4">System Architecture & Management</p>
+                <ul class="space-y-3 text-slate-300 text-lg">
+                    <li><i class="fa-solid fa-check mr-2 text-blue-500"></i> 고가용성 Web UI 및 전체 시스템 인프라 구축</li>
+                    <li><i class="fa-solid fa-check mr-2 text-blue-500"></i> 전사 보안 통합 관제 SaaS 플랫폼 운영</li>
+                    <li><i class="fa-solid fa-check mr-2 text-blue-500"></i> 비즈니스 마케팅 및 프로젝트 매니지먼트</li>
+                </ul>
+            </div>
+            <!-- PL Second -->
+            <div class="glass-card fade-in" style="animation-delay: 0.2s">
+                <div class="text-emerald-400 text-5xl mb-6"><i class="fa-solid fa-microchip"></i></div>
+                <h3 class="text-3xl font-bold mb-2">KM (경민)</h3>
+                <p class="text-emerald-500 font-semibold mb-4">AI Development & Engine Lead</p>
+                <ul class="space-y-3 text-slate-300 text-lg">
+                    <li><i class="fa-solid fa-check mr-2 text-emerald-500"></i> 멀웨어 분석 자동화 엔진 총괄 개발</li>
+                    <li><i class="fa-solid fa-check mr-2 text-emerald-500"></i> F1-Score 90% 달성 핵심 AI 모델 튜닝</li>
+                    <li><i class="fa-solid fa-check mr-2 text-emerald-500"></i> 지능형 위협 탐지 파이프라인 설계</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Problem -->
+    <div class="slide" id="slide-2">
+        <h2 class="text-5xl font-bold mb-12 accent-border">Legacy Crisis</h2>
+        <div class="grid grid-cols-3 gap-8">
+            <div class="glass-card text-center">
+                <i class="fa-solid fa-bolt-lightning text-amber-400 text-4xl mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">지연 시간 (Latency)</h4>
+                <p class="text-slate-400">클라우드 분석을 기다리는 사이 공격은 이미 완료됩니다.</p>
+            </div>
+            <div class="glass-card text-center">
+                <i class="fa-solid fa-brain text-red-400 text-4xl mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">분석 공백</h4>
+                <p class="text-slate-400">AI가 만드는 변종 멀웨어를 기존 시그니처로는 막을 수 없습니다.</p>
+            </div>
+            <div class="glass-card text-center">
+                <i class="fa-solid fa-chart-line text-blue-400 text-4xl mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">운영 효율 저하</h4>
+                <p class="text-slate-400">보안 SW의 높은 점유율이 업무용 CPU 자원을 낭비합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Solution -->
+    <div class="slide" id="slide-3">
+        <h2 class="text-5xl font-bold mb-12 accent-border">The WAC Solution</h2>
+        <div class="flex gap-12 items-center">
+            <div class="w-1/2 space-y-8">
+                <div class="flex gap-6">
+                    <div class="bg-blue-500/20 p-4 rounded-xl h-fit"><i class="fa-solid fa-display text-blue-400 text-2xl"></i></div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2">인텔리전트 대시보드 (By KJW)</h4>
+                        <p class="text-slate-400">복잡한 데이터를 직관적인 가시성으로 전환. 단 한 번의 클릭으로 글로벌 지사 통제.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="bg-emerald-500/20 p-4 rounded-xl h-fit"><i class="fa-solid fa-robot text-emerald-400 text-2xl"></i></div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-2">자율 분석 엔진 (By 경민)</h4>
+                        <p class="text-slate-400">탐지 즉시 정적/동적 분석 자동화. 분석가 없는 24/7 즉각 대응 체계.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 glass-card h-80 flex items-center justify-center border-emerald-500/30">
+                <div class="text-center">
+                    <div class="text-6xl font-black text-emerald-400 mb-2">F1 90%</div>
+                    <p class="text-slate-400">업계 최고 수준의 정밀도 및 재현율</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Data Harvesting Flywheel -->
+    <div class="slide" id="slide-4">
+        <h2 class="text-5xl font-bold mb-12 accent-border">Data Harvesting Flywheel</h2>
+        <div class="relative py-20">
+            <div class="absolute top-1/2 left-0 w-full h-1 bg-slate-800 -translate-y-1/2"></div>
+            <div class="flex justify-between relative">
+                <div class="glass-card w-64 text-center">
+                    <div class="bg-emerald-500 w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center font-bold">1</div>
+                    <h5 class="font-bold">실시간 탐지</h5>
+                    <p class="text-sm text-slate-400 mt-2">엣지 기기에서 신종 위협 감지</p>
+                </div>
+                <div class="glass-card w-64 text-center">
+                    <div class="bg-emerald-500 w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center font-bold">2</div>
+                    <h5 class="font-bold">데이터 수확</h5>
+                    <p class="text-sm text-slate-400 mt-2">공격 패턴 데이터 즉시 수집</p>
+                </div>
+                <div class="glass-card w-64 text-center">
+                    <div class="bg-emerald-500 w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center font-bold">3</div>
+                    <h5 class="font-bold">중앙 학습</h5>
+                    <p class="text-sm text-slate-400 mt-2">SaaS 플랫폼에서 AI 모델 업데이트</p>
+                </div>
+                <div class="glass-card w-64 text-center">
+                    <div class="bg-emerald-500 w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center font-bold">4</div>
+                    <h5 class="font-bold">집단 면역</h5>
+                    <p class="text-sm text-slate-400 mt-2">전 세계 모든 기기로 방어망 배포</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Market Performance -->
+    <div class="slide" id="slide-5">
+        <h2 class="text-5xl font-bold mb-12 accent-border">Performance Excellence</h2>
+        <div class="space-y-8">
+            <div>
+                <div class="flex justify-between mb-2"><span class="font-bold">WAC AI Engine</span><span class="text-emerald-400 font-bold">90.2%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-8 overflow-hidden">
+                    <div class="bg-gradient-to-r from-emerald-500 to-emerald-400 h-full rounded-full" style="width: 90.2%"></div>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-between mb-2"><span class="font-bold text-slate-400">Next-Gen Competitor A</span><span class="text-slate-400">81.5%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-8 overflow-hidden">
+                    <div class="bg-slate-600 h-full rounded-full" style="width: 81.5%"></div>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-between mb-2"><span class="font-bold text-slate-500">Legacy Antivirus</span><span class="text-slate-500">62.0%</span></div>
+                <div class="w-full bg-slate-800 rounded-full h-8 overflow-hidden">
+                    <div class="bg-slate-700 h-full rounded-full" style="width: 62%"></div>
+                </div>
+            </div>
+        </div>
+        <p class="mt-12 text-center text-slate-400 italic">"F1 Score 90% is success ."</p>
+    </div>
+
+    <!-- Slide 7: Closing -->
+    <div class="slide" id="slide-6">
+        <div class="text-center">
+            <h2 class="text-7xl font-black mb-8 italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">WAC: SECURING THE FUTURE</h2>
+            <div class="glass-card inline-block p-12 border-emerald-500/50">
+                <p class="text-2xl text-emerald-400 font-bold mb-4">Wireless AI Cyber Security</p>
+                <div class="flex justify-center gap-12 text-xl text-slate-300">
+                    <div><strong>KJW</strong> | System Architecture</div>
+                    <div class="w-px h-8 bg-slate-700"></div>
+                    <div><strong>경민</strong> | security researcher</div>
+                </div>
+            </div>
+            <p class="mt-12 text-slate-500">감사합니다. 질의응답을 시작하겠습니다.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="controls">
+        <button class="control-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="control-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        let currentSlide = 0;
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Initial progress bar
+        updateSlide();
+    </script>
+</body>
+</html>
